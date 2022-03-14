@@ -65,7 +65,7 @@ def pes():
 	dp=float(input("Enter Change in price :"))
 	s=float(input("Enter Initial Quantity supplied :"))
 	p=float(input("Enter Initial Price :"))
-	pesval=calc(dq,dp,q,p)
+	pesval=calc(ds,dp,s,p)
 	if pesval>0:
 		pesval=pesval
 	else:
@@ -73,6 +73,7 @@ def pes():
 	print("------------------------------------------------------")
 	print("Price Elasticity of Supply is :",round(pesval,2))
 
+#Function for calculating Total Revenue
 def rev(a,b,c,d,e):
 	int_rev= c*d
 	new_rev= a*b
