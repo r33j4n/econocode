@@ -37,11 +37,11 @@ def ped():
 
 
 def xED():
-	xdq = float(input("Enter Change in quantity demanded of Good X :"))
-	ydp = float(input("Enter Change in price of Good Y :"))
+	cxq = float(input("Enter current quantity demanded of Good X :"))
+	cyp = float(input("Enter current price of Good Y :"))
 	xq = float(input("Enter Initial Quantity Demanded of Good X :"))
 	yp = float(input("Enter Initial Price of Good Y :"))
-	xedval = calc(xdq, ydp, xq, yp)
+	xedval = calc(cxq-xq, cyp-yp, xq, yp)
 	print("------------------------------------------------------")
 	print("Cross Elasticity of Demand is :", round(xedval, 2))
 	if xedval > 0:
@@ -53,11 +53,11 @@ def xED():
 
 
 def yED():
-	xdq = float(input("Enter Change in quantity demanded of Good :"))
-	dyinc = float(input("Enter Change in Income :"))
+	cxq = float(input("Enter current quantity demanded of Good :"))
+	cyinc = float(input("Enter current Income :"))
 	xq = float(input("Enter Initial Quantity Demanded of Good :"))
 	yinc = float(input("Enter Initial Income :"))
-	yedval = calc(xdq, dyinc, xq, yinc)
+	yedval = calc(cxq-xq, cyinc-yinc, xq, yinc)
 	print("------------------------------------------------------")
 	print("Income Elasticity of Demand is :", round(yedval, 2))
 	if yedval > 0:
@@ -69,11 +69,11 @@ def yED():
 
 
 def pes():
-	ds = float(input("Enter Change in quantity supplied :"))
-	dp = float(input("Enter Change in price :"))
+	cs = float(input("Enter current quantity supplied :"))
+	cp = float(input("Enter current price :"))
 	s = float(input("Enter Initial Quantity supplied :"))
 	p = float(input("Enter Initial Price :"))
-	pesval = calc(ds, dp, s, p)
+	pesval = calc(cs-s, cp-p, s, p)
 	if pesval > 0:
 		pesval = pesval
 	else:
