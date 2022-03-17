@@ -3,6 +3,8 @@ def calc(a, b, c, d):
 	return (a*c)/(b*d)
 
 #Function for Queriying Price Elsticity Demand
+
+
 def ped():
 	cd = float(input("Enter current quantity demanded :"))
 	cp = float(input("Enter current price :"))
@@ -21,17 +23,19 @@ def ped():
 	if 0 < pedval < 1:
 		print("Price Elasticity of demand is Inelastic")
 	elif pedval == 0:
-		print("Price Elasticity of demand is Inelastic")
-	if pedval == 1:
+		print("Price Elasticity of demand is Perfectly Inelastic")
+	elif pedval == 1:
 		print("Price Elasticity of demand is Unitary elastic")
-	if pedval > 1:
+	elif pedval > 1:
 		print("Price Elasticity of demand is Elastic")
-	if dp == 0:
+	elif dp == 0:
 		print("Price Elasticity of demand is Perfectly Elastic")
 	print("------------------------------------------------------")
 	rev(cp, cd, q, p, pedval)
 
 #Function for Queriying Cross Elsticity Demand
+
+
 def xED():
 	xdq = float(input("Enter Change in quantity demanded of Good X :"))
 	ydp = float(input("Enter Change in price of Good Y :"))
@@ -46,6 +50,8 @@ def xED():
 		print("Good X and Good Y are Complementary Goods")
 
 #Function for Queriying Income Elsticity Demand
+
+
 def yED():
 	xdq = float(input("Enter Change in quantity demanded of Good :"))
 	dyinc = float(input("Enter Change in Income :"))
@@ -55,11 +61,13 @@ def yED():
 	print("------------------------------------------------------")
 	print("Income Elasticity of Demand is :", round(yedval, 2))
 	if yedval > 0:
-		print("Good X and Good Y are Normal Goods")
+		print("Good is Normal Good")
 	else:
-		print("Good X and Good Y are Inferior Goods")
+		print("Good is Inferior Good")
 
 #Function for Queriying Price Elsticity Supply
+
+
 def pes():
 	ds = float(input("Enter Change in quantity supplied :"))
 	dp = float(input("Enter Change in price :"))
@@ -74,6 +82,8 @@ def pes():
 	print("Price Elasticity of Supply is :", round(pesval, 2))
 
 #Function for calculating Total Revenue
+
+
 def rev(a, b, c, d, e):
 	int_rev = c*d
 	new_rev = a*b
@@ -83,7 +93,7 @@ def rev(a, b, c, d, e):
 		print("Increase in Total Revenue is: ", round((new_rev-int_rev), 2))
 	elif (e < 1) and ((a-d) < 0):
 		print("Decrease in Total Revenue is: ", round((int_rev-new_rev), 2))
-	if (e > 1) and ((a-d) > 0):
+	elif (e > 1) and ((a-d) > 0):
 		print("Decrease in Total Revenue is: ", round((int_rev-new_rev), 2))
 	elif (e > 1) and ((a-d) < 0):
 		print("Increase in Total Revenue is: ", round((new_rev-int_rev), 2))
@@ -108,6 +118,8 @@ while True:
 		yED()
 	elif ans == (4):
 		pes()
+	else:
+		continue
 	print("------------------------------------------------------")
 	ans_ = str(input("Do you want to calculate again (Y/N) ? "))
 	if (ans_ == 'Y') or (ans_ == 'y') or (ans_ == 'Yes') or (ans_ == 'yes'):
