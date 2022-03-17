@@ -1,6 +1,6 @@
 #Funtion for Calculation part
 def calc(a, b, c, d):
-	return (a*c)/(b*d)
+	return (a*d)/(b*c)
 
 #Function for Queriying Price Elsticity Demand
 
@@ -41,7 +41,7 @@ def xED():
 	ydp = float(input("Enter Change in price of Good Y :"))
 	xq = float(input("Enter Initial Quantity Demanded of Good X :"))
 	yp = float(input("Enter Initial Price of Good Y :"))
-	xedval = calc(xdq, ydp, yp, xq)
+	xedval = calc(xdq, ydp, xq, yp)
 	print("------------------------------------------------------")
 	print("Cross Elasticity of Demand is :", round(xedval, 2))
 	if xedval > 0:
