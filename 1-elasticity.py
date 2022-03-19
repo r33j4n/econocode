@@ -17,8 +17,10 @@ def ped():
 				[5] Initial Price
 
 		''')
-	ans = int(input("Enter the number of the Calculation"))
+	ans = int(input("Enter the number of the Calculation "))
+	print("------------------------------------------------------")
 	print("If Any Data not related to the Calculation input 0 and hit Enter")
+	print("------------------------------------------------------")
 	cd = float(input("Enter current quantity demanded :"))
 	cp = float(input("Enter current price :"))
 	q = float(input("Enter Initial Quantity Demanded :"))
@@ -52,7 +54,7 @@ def ped():
 		cd = calc(e, p, 1/dp, q)+q
 		print("Current Quantity Demanded is ", calc(e, p, 1/dp, q)+q, " Units")
 	elif (ans == 3):
-		cp = calc(e, dp, 1/q, dp)+p
+		cp = calc(p, e, q, dq)+p
 		print("Current Price is ", calc(p, e, q, dq)+p, " Rupees")
 	elif (ans == 4):
 		q = calc(cd, 1, (e*dp+p), p)
@@ -76,7 +78,10 @@ def xED():
 				[5] Initial Price of Good Y
 
 		''')
-	ans = int(input("Enter the number of the Calculation"))
+	ans = int(input("Enter the number of the Calculation "))
+	print("------------------------------------------------------")
+	print("If Any Data not related to the Calculation input 0 and hit Enter")
+	print("------------------------------------------------------")
 	cxq = float(input("Enter current quantity demanded of Good X :"))
 	cyp = float(input("Enter current price of Good Y :"))
 	xq = float(input("Enter Initial Quantity Demanded of Good X :"))
@@ -115,7 +120,10 @@ def yED():
 				[5] Initial Income
 
 		''')
-	ans = int(input("Enter the number of the Calculation"))
+	ans = int(input("Enter the number of the Calculation "))
+	print("------------------------------------------------------")
+	print("If Any Data not related to the Calculation input 0 and hit Enter")
+	print("------------------------------------------------------")
 	cxq = float(input("Enter current quantity demanded of Good :"))
 	cyinc = float(input("Enter current Income :"))
 	xq = float(input("Enter Initial Quantity Demanded of Good :"))
@@ -123,6 +131,7 @@ def yED():
 	e = float(input("Enter Income elsticity demamd:"))
 	dq = cxq-xq
 	dp = cyinc-yinc
+	print("------------------------------------------------------")
 	if (ans == 1):
 		yedval = calc(cxq-xq, cyinc-yinc, xq, yinc)
 		print("------------------------------------------------------")
@@ -153,8 +162,10 @@ def pes():
 				[5] Initial Price
 
 		''')
-	ans = int(input("Enter the number of the Calculation"))
+	ans = int(input("Enter the number of the Calculation "))
+	print("------------------------------------------------------")
 	print("If Any Data not related to the Calculation input 0 and hit Enter")
+	print("------------------------------------------------------")
 	cs = float(input("Enter current quantity supplied :"))
 	cp = float(input("Enter current price :"))
 	s = float(input("Enter Initial Quantity supplied :"))
@@ -162,8 +173,10 @@ def pes():
 	e = float(input("Enter Price Elasticity of Supply"))
 	dq = cs-s
 	dp = cp-p
-	pesval = calc(cs-s, cp-p, s, p)
+	e= -1*e
+	print("------------------------------------------------------")
 	if (ans == 1):
+		pesval = calc(cs-s, cp-p, s, p)
 		if pesval > 0:
 			pesval = pesval
 		else:
@@ -209,6 +222,8 @@ def rev(a, b, c, d, e):
 
 #Main Function
 while True:
+	print("------------------------------------------------------")
+	print("------------------------------------------------------")
 	print("Elasticity-Calculator-204216D-IS1020-Assignment-2")
 	print("What type of Elasiticity do you want to Calculate ..?")
 	print('''
