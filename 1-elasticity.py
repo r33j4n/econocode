@@ -1,12 +1,39 @@
-#import numpy as np
-#from shapely.geometry import LineString
-#Funtion for Calculation part
+import numpy as np
+from shapely.geometry import LineString
+#Fuunction for finding Equillibrium point
+def equb():
+	supply = []
+	demand = []
+	sprice = []
+	dprice=[]
+	ans=int(input("How many demand and Supply points do you want to input "))
+	for i in range(ans):
+		print("Enter Supply and Price value respectively ",i+1," element")
+		sval=float(input("Quantity of Supply Value: "))
+		supply.append(sval)
+		spval=float(input("Price Value: "))
+		sprice.append(spval)
+		print(sval," , ",spval)
+		print("------------")
+	for j in range(ans):
+		print("Enter Demand and Price value respectively ",j+1," element")
+		dval=float(input("Quantity of Demand Value: "))
+		demand.append(dval)
+		dpval=float(input("Price Value: "))
+		dprice.append(dpval)
+		print(dval," , ",dpval)
+		print("------------")
+	line_1 = LineString(np.column_stack((supply, sprice)))
+	line_2 = LineString(np.column_stack((demand, dprice)))
+	intersection = line_1.intersection(line_2)
+	x, y = intersection.xy
+	print("Equillibrium Price is ",y[0]," at quantity of demand and Supply is ",x[0])
 
-
+#Function for the whole Calculation
 def calc(a, b, c, d):
 	return (a*d)/(b*c)
 
-
+#Function for calculating Price Elasticity Related Calculation
 def ped():
 	print("What do you want to calculate ?")
 	print('''
@@ -67,7 +94,7 @@ def ped():
 		rev(cp, cd, q, p, -1*e)
 
 
-#Function for Queriying Cross Elsticity Demand
+#Function for Queriying Cross Elsticity Demand related Calculations
 def xED():
 	print("What do you want to calculate ?")
 	print('''
@@ -107,7 +134,7 @@ def xED():
 	elif (ans == 5):
 		print("Initial Price is ", calc(e, (dq+e*xq), 1/cyp, xq), " Rupees")
 
-#Function for Queriying Income Elsticity Demand
+#Function for Queriying Income Elsticity Demand related calculation
 
 
 def yED():
@@ -151,7 +178,7 @@ def yED():
 		print("Initial Income is ", calc(e, (dq+e*xq), 1/cyinc, xq), " Rupees")
 
 
-#Function for Queriying Price Elsticity Supply
+#Function for Queriying Price Elsticity Supply related calculations
 def pes():
 	print("What do you want to calculate ?")
 	print('''
@@ -183,6 +210,17 @@ def pes():
 			pesval *= -1
 		print("------------------------------------------------------")
 		print("Price Elasticity of Supply is :", round(pesval, 2))
+		if 0 < pesval < 1:
+			print("Price Elasticity of Supply is Inelastic")
+		elif pesval == 0:
+			print("Price Elasticity of Supply is Perfectly Inelastic")
+		elif pesval == 1:
+			print("Price Elasticity of Supply is Unitary elastic")
+		elif pesval > 1:
+			print("Price Elasticity of Supply is Elastic")
+		elif dp == 0:
+			print("Price Elasticity of Supply is Perfectly Elastic")
+		print("------------------------------------------------------")
 	elif (ans == 2):
 		print("Current Quantity Supplied ", calc(e, p, 1/dp, s)+s, " Units")
 	elif (ans == 3):
@@ -209,16 +247,6 @@ def rev(a, b, c, d, e):
 		print("Increase in Total Revenue is: ", round((new_rev-int_rev), 2))
 
 
-#def equb():
-#	supply = [12, 10, 8, 6, 4, 2, 0]
-#	demand = [0, 2, 2, 3, 4, 5, 6]
-#	price = [4000, 3600, 3200, 2800, 2400, 2000, 1600]
-#	line_1 = LineString(np.column_stack((supply, price)))
-#	line_2 = LineString(np.column_stack((demand, price)))
-#	intersection = line_1.intersection(line_2)
-#	x, y = intersection.xy
-#	print(x, y)
-
 
 #Main Function
 while True:
@@ -231,6 +259,7 @@ while True:
 			  [2] Cross Elasticity Demand
 			  [3] Income Elasticity of Demand
 			  [4] Price Elasticity of Supply
+			  [5] Equillibrium Calculater
 		''')
 	ans = int(input("Input Enter the number of the type: "))
 	if ans == (1):
@@ -241,6 +270,8 @@ while True:
 		yED()
 	elif ans == (4):
 		pes()
+	elif ans ==(5):
+		equb()
 	else:
 		continue
 	print("------------------------------------------------------")
