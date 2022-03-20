@@ -217,7 +217,6 @@ def pes():
 	e = float(input("Enter Price Elasticity of Supply"))
 	dq = cs-s
 	dp = cp-p
-	e= -1*e
 	print("------------------------------------------------------")
 	if (ans == 1):
 		pesval = calc(cs-s, cp-p, s, p)
