@@ -133,6 +133,12 @@ def xED():
 		      calc(cxq, 1, (e*dp+yp), yp), " Units")
 	elif (ans == 5):
 		print("Initial Price is ", calc(e, (dq+e*xq), 1/cyp, xq), " Rupees")
+	if(ans != 1):
+		xedval=e
+		if xedval > 0:
+			print("Good X and Good Y are Close Subtitude Goods")
+		else:
+			print("Good X and Good Y are Complementary Goods")
 
 #Function for Queriying Income Elsticity Demand related calculation
 
@@ -176,6 +182,17 @@ def yED():
 			cxq, 1, (e*dp+yinc), yinc), " Units")
 	elif (ans == 5):
 		print("Initial Income is ", calc(e, (dq+e*xq), 1/cyinc, xq), " Rupees")
+	if(ans != 1):
+		yedval=e
+		if yedval > 1:
+			print("Good is Luxary Good")
+		elif yedval > 0:
+			print("Good is Normal Good")
+		elif yedval==0:
+			print("Zero income elasticity")
+		else:
+			print("Good is Inferior Good")
+
 
 
 #Function for Queriying Price Elsticity Supply related calculations
